@@ -1,0 +1,100 @@
+import type { BlockMeta, Question } from "./types";
+
+export const ANSWER_OPTIONS = [
+  { value: 1 as const, label: "Não existe", hint: "Isso praticamente não acontece na empresa." },
+  { value: 2 as const, label: "Acontece raramente", hint: "Existe alguma iniciativa, mas ainda é exceção." },
+  { value: 3 as const, label: "Acontece às vezes", hint: "Existe, mas é inconsistente." },
+  { value: 4 as const, label: "Acontece na maioria das vezes", hint: "É relativamente estruturado, mas ainda há falhas." },
+  { value: 5 as const, label: "É um padrão", hint: "Acontece consistentemente, independentemente de pessoa, dia ou situação." },
+];
+
+export const BLOCKS: BlockMeta[] = [
+  { id: "clareza", index: 1, title: "Clareza", kicker: "Bloco 1 de 5",
+    description: "O que se passa na cabeça do cliente antes de ele dizer sim." },
+  { id: "fios-condutores", index: 2, title: "Fios Condutores", kicker: "Bloco 2 de 5",
+    description: "O que deve se repetir do início ao fim." },
+  { id: "chaves-do-sucesso", index: 3, title: "Chaves do Sucesso", kicker: "Bloco 3 de 5",
+    description: "Nem todo momento pesa igual — alguns decidem tudo." },
+  { id: "recompra", index: 4, title: "Mola da Recompra", kicker: "Bloco 4 de 5",
+    description: "Depois da venda, a história continua." },
+  { id: "proximo-passo", index: 5, title: "Próximo Passo", kicker: "Bloco 5 de 5",
+    description: "Recompra não é simplesmente mandar uma oferta." },
+];
+
+export const QUESTIONS: Question[] = [
+  { id: "clareza_01", block: "clareza",
+    text: "Nosso cliente entende claramente por que deveria escolher nossa empresa em vez de uma alternativa.",
+    options: ANSWER_OPTIONS },
+  { id: "clareza_02", block: "clareza",
+    text: "Aquilo que prometemos na comunicação corresponde ao que o cliente encontra na prática.",
+    options: ANSWER_OPTIONS, observationPrompt: true },
+  { id: "clareza_03", block: "clareza",
+    text: "Conseguimos identificar e reduzir os principais pontos de dúvida, insegurança ou espera antes da compra.",
+    options: ANSWER_OPTIONS },
+  { id: "clareza_04", block: "clareza",
+    text: "Nossa proposta de valor é compreendida pelos clientes sem depender de longas explicações da equipe.",
+    options: ANSWER_OPTIONS },
+
+  { id: "fios_01", block: "fios-condutores",
+    text: "Nossa equipe sabe quais 2 ou 3 sensações queremos que o cliente leve da experiência.",
+    options: ANSWER_OPTIONS },
+  { id: "fios_02", block: "fios-condutores",
+    text: "Existem detalhes construídos intencionalmente para reforçar essas sensações.",
+    options: ANSWER_OPTIONS, observationPrompt: true },
+  { id: "fios_03", block: "fios-condutores",
+    text: "Se pessoas diferentes atendessem o mesmo cliente, a experiência continuaria parecendo pertencer à mesma empresa.",
+    options: ANSWER_OPTIONS },
+  { id: "fios_04", block: "fios-condutores",
+    text: "Os comportamentos que queremos que a equipe repita estão claros e são fáceis de reproduzir.",
+    options: ANSWER_OPTIONS },
+
+  { id: "chaves_01", block: "chaves-do-sucesso",
+    text: "Sabemos quais são os 3 momentos da jornada que mais influenciam a percepção do cliente.",
+    options: ANSWER_OPTIONS },
+  { id: "chaves_02", block: "chaves-do-sucesso",
+    text: "Para esses momentos, está claro o que precisa acontecer na frente do cliente.",
+    options: ANSWER_OPTIONS },
+  { id: "chaves_03", block: "chaves-do-sucesso",
+    text: "Para esses momentos, está claro o que precisa acontecer nos bastidores.",
+    options: ANSWER_OPTIONS },
+  { id: "chaves_04", block: "chaves-do-sucesso",
+    text: "Temos alguma forma de verificar se esses momentos realmente acontecem como planejado.",
+    options: ANSWER_OPTIONS, observationPrompt: true },
+  { id: "chaves_05", block: "chaves-do-sucesso",
+    text: "Quando um desses momentos falha, sabemos quem é responsável por corrigir o problema.",
+    options: ANSWER_OPTIONS },
+
+  { id: "recompra_01", block: "recompra",
+    text: "Temos uma experiência planejada para as primeiras 24–72 horas depois da compra.",
+    options: ANSWER_OPTIONS },
+  { id: "recompra_02", block: "recompra",
+    text: "Existe um ritual ou processo para manter o relacionamento vivo depois da entrega.",
+    options: ANSWER_OPTIONS },
+  { id: "recompra_03", block: "recompra",
+    text: "Sabemos, com dados ou evidências concretas, por que clientes deixam de comprar novamente.",
+    options: ANSWER_OPTIONS, observationPrompt: true },
+  { id: "recompra_04", block: "recompra",
+    text: "Sabemos quando um cliente provavelmente estará pronto para comprar novamente.",
+    options: ANSWER_OPTIONS },
+  { id: "recompra_05", block: "recompra",
+    text: "Temos uma estratégia para criar motivos relevantes para o cliente voltar, além de oferecer desconto.",
+    options: ANSWER_OPTIONS },
+
+  { id: "proximo_01", block: "proximo-passo",
+    text: "Existe um momento definido para convidar o cliente a voltar.",
+    options: ANSWER_OPTIONS },
+  { id: "proximo_02", block: "proximo-passo",
+    text: "Sabemos qual é o próximo passo mais importante que queremos provocar na jornada do cliente.",
+    options: ANSWER_OPTIONS },
+  { id: "proximo_03", block: "proximo-passo",
+    text: "Conseguimos escolher uma única melhoria prioritária para trabalhar nos próximos 90 dias.",
+    options: ANSWER_OPTIONS },
+  { id: "proximo_04", block: "proximo-passo",
+    text: "Sabemos qual indicador poderia mostrar se essa melhoria realmente funcionou.",
+    options: ANSWER_OPTIONS },
+];
+
+export const getQuestionsByBlock = (block: string) =>
+  QUESTIONS.filter((q) => q.block === block);
+
+export const getBlockMeta = (id: string) => BLOCKS.find((b) => b.id === id);
