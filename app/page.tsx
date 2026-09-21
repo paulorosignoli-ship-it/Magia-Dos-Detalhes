@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const discovery = [
@@ -21,62 +22,60 @@ const audience = [
 export default function Home() {
   return (
     <main className="relative min-h-screen star-field">
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        {/* Imagem de fundo */}
-        <div className="absolute inset-0 -z-10">
-          <img
+      <section className="relative overflow-hidden mx-auto max-w-5xl px-6 pt-10 pb-24 sm:pt-16 sm:pb-32">
+        <div className="absolute inset-x-0 top-0 h-[34rem] overflow-hidden rounded-b-[3rem] border-x border-white/5">
+          <Image
             src="/images/hero-bg.jpg"
             alt=""
-            aria-hidden
-            className="w-full h-full object-cover opacity-30"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="object-cover object-center opacity-55"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/85 to-navy-deep" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/20 via-navy-deep/65 to-navy-deep" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/45 via-transparent to-navy-deep/35" />
+        </div>
+        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-electric/10 blur-3xl" aria-hidden />
+        <div className="absolute left-1/3 top-10 h-40 w-40 rounded-full bg-gold/5 blur-3xl" aria-hidden />
+        <div className="relative z-10 pt-16 sm:pt-24">
+        <p className="text-electric text-[11px] tracking-[0.3em] uppercase font-medium">
+          Magia dos Detalhes
+        </p>
+        <h1 className="mt-6 font-display text-4xl sm:text-6xl leading-[1.05] text-cream">
+          Você acha que sua empresa entrega uma boa experiência.
+          <br />
+          <span className="text-gold">Mas... entrega mesmo?</span>
+        </h1>
+        <p className="mt-7 text-cream/70 text-base sm:text-lg max-w-2xl leading-relaxed">
+          Responda algumas perguntas e descubra onde sua empresa pode estar perdendo
+          clareza, consistência, encantamento ou oportunidades de recompra.
+        </p>
+
+        <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-cream/60 backdrop-blur-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
+          Inspirado em princípios de marcas que encantam — não em fórmulas prontas.
         </div>
 
-        {/* Padrão de pontos */}
-        <div className="absolute inset-0 -z-10 bg-dot-pattern bg-dot opacity-40" aria-hidden />
+        <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+          <Link
+            href="/diagnostico"
+            className="inline-flex items-center justify-center rounded-full bg-gold text-navy-deep font-semibold px-7 py-4 text-sm tracking-wide hover:bg-cream transition-colors"
+          >
+            FAZER O RAIO-X
+          </Link>
+          <span className="text-cream/50 text-sm">
+            Leva aproximadamente 5–7 minutos.
+          </span>
+        </div>
 
-        <div className="relative mx-auto max-w-5xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
-          <p className="text-electric text-[11px] tracking-[0.3em] uppercase font-medium">
-            Magia dos Detalhes
-          </p>
-          <h1 className="mt-6 font-display text-4xl sm:text-6xl leading-[1.05] text-cream">
-            Você acha que sua empresa entrega uma boa experiência.
-            <br />
-            <span className="text-gold">Mas... entrega mesmo?</span>
-          </h1>
-          <p className="mt-7 text-cream/70 text-base sm:text-lg max-w-2xl leading-relaxed">
-            Responda algumas perguntas e descubra onde sua empresa pode estar perdendo
-            clareza, consistência, encantamento ou oportunidades de recompra.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
-            <Link
-              href="/diagnostico"
-              className="inline-flex items-center justify-center rounded-full bg-gold text-navy-deep font-semibold px-7 py-4 text-sm tracking-wide hover:bg-cream transition-colors"
-            >
-              FAZER O RAIO-X
-            </Link>
-            <span className="text-cream/50 text-sm">
-              Leva aproximadamente 5–7 minutos.
-            </span>
-          </div>
-
-          <div className="mt-16 grid grid-cols-3 gap-6 max-w-xl text-cream/60 text-xs sm:text-sm">
-            <div><span className="text-gold font-display text-2xl sm:text-3xl">22</span><br/>perguntas</div>
-            <div><span className="text-gold font-display text-2xl sm:text-3xl">5</span><br/>blocos da jornada</div>
-            <div><span className="text-gold font-display text-2xl sm:text-3xl">90</span><br/>dias de foco</div>
-          </div>
-
-          <div className="mt-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-cream/60 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-            Inspirado em princípios de marcas que encantam — não em fórmulas prontas.
-          </div>
+        <div className="mt-16 grid grid-cols-3 gap-6 max-w-xl text-cream/60 text-xs sm:text-sm">
+          <div><span className="text-gold font-display text-2xl sm:text-3xl">22</span><br/>perguntas</div>
+          <div><span className="text-gold font-display text-2xl sm:text-3xl">5</span><br/>blocos da jornada</div>
+          <div><span className="text-gold font-display text-2xl sm:text-3xl">90</span><br/>dias de foco</div>
+        </div>
         </div>
       </section>
 
-      {/* EXPERIÊNCIA */}
       <section className="relative border-t border-white/5 bg-navy-mid/40">
         <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
           <h2 className="font-display text-3xl sm:text-4xl text-cream max-w-3xl">
@@ -96,7 +95,7 @@ export default function Home() {
               { n: "02", t: "Organize", d: "o que precisa acontecer, na ordem certa, sempre." },
               { n: "03", t: "Repita", d: "o que funcionou, até virar padrão — não exceção." },
             ].map((s) => (
-              <div key={s.n} className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] card-hover">
+              <div key={s.n} className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
                 <span className="text-gold font-display text-2xl">{s.n}</span>
                 <h3 className="mt-3 text-cream text-lg">{s.t}</h3>
                 <p className="mt-2 text-cream/60 text-sm leading-relaxed">{s.d}</p>
@@ -106,7 +105,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* O QUE VOCÊ VAI DESCOBRIR */}
       <section className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
         <h2 className="font-display text-3xl sm:text-4xl text-cream">
           O que você vai descobrir
@@ -130,7 +128,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PARA QUEM É */}
       <section className="border-t border-white/5 bg-navy-mid/40">
         <div className="mx-auto max-w-5xl px-6 py-20">
           <h2 className="font-display text-3xl sm:text-4xl text-cream">Para quem é?</h2>
@@ -145,7 +142,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="mx-auto max-w-5xl px-6 py-14 text-center text-cream/50 text-sm">
         <p className="italic font-display text-cream/70 max-w-2xl mx-auto text-base sm:text-lg">
           “A experiência que vira história é a que o cliente sente vontade de contar

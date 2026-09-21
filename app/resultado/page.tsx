@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -126,16 +127,26 @@ function ResultInner() {
           </div>
         </section>
 
-        <section className="mt-16 animate-fade-up">
-          <div className="flex items-baseline gap-4">
+        <section className="relative mt-16 overflow-hidden rounded-3xl border border-white/10 min-h-56 animate-fade-up">
+          <Image
+            src="/images/result-pattern.png"
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/35" />
+          <div className="relative p-7 sm:p-9">
+            <div className="flex items-baseline gap-4">
             <span className="font-display text-5xl sm:text-6xl text-cream tabular-nums">
               {result.overall}
             </span>
             <span className="text-cream/50 text-sm">/ 100 maturidade geral</span>
+            </div>
+            <p className="mt-3 text-cream/60 text-sm max-w-xl leading-relaxed">
+              Não é uma nota — é um retrato. Serve para você saber de onde partir.
+            </p>
           </div>
-          <p className="mt-3 text-cream/60 text-sm max-w-xl leading-relaxed">
-            Não é uma nota — é um retrato. Serve para você saber de onde partir.
-          </p>
         </section>
 
         <section className="mt-14 animate-fade-up">

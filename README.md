@@ -64,7 +64,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 
 A atualização recebida referenciava imagens que não vieram dentro do pacote enviado. Para evitar URLs quebradas em produção, o beta usa efeitos visuais em CSS e não depende desses arquivos.
 
-Quando as imagens finais forem fornecidas, coloque-as em `public/images/` e atualize os componentes relevantes.
+As imagens do projeto ficam em `public/images/` e já estão referenciadas pelos componentes com caminhos como `/images/hero-bg.jpg`.
 
 ### Observação sobre build
 
