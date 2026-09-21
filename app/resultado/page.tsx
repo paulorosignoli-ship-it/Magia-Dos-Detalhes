@@ -9,6 +9,9 @@ import DimensionBars from "@/components/DimensionBars";
 import SignalList from "@/components/SignalList";
 import AnswerReview from "@/components/AnswerReview";
 import ShareBar from "@/components/ShareBar";
+import DownloadPDFButton from "@/components/DownloadPDFButton";
+import Callout from "@/components/Callout";
+import PatternDivider from "@/components/PatternDivider";
 import { getContextLabel } from "@/lib/context-questions";
 import type { BlockId } from "@/lib/types";
 
@@ -179,26 +182,16 @@ function ResultInner() {
           )}
         </section>
 
-        <section className="mt-14 animate-fade-up">
-          <p className="text-electric text-[11px] tracking-[0.3em] uppercase">
-            Seu foco para os próximos 90 dias
-          </p>
-          <h2 className="mt-3 font-display text-2xl sm:text-3xl text-cream leading-snug">
-            {priority.headline}
-          </h2>
-          <p className="mt-4 text-cream/70 leading-relaxed">
-            Não tente consertar toda a experiência de uma vez.
-          </p>
-
-          <ol className="mt-8 grid gap-4">
+        <PatternDivider />
+        <section className="mt-2 animate-fade-up">
+          <Callout variant="insight" title="Seu foco para os próximos 90 dias">
+            <p className="font-display text-xl sm:text-2xl text-cream leading-snug mb-3">{priority.headline}</p>
+            <p className="text-cream/70">Não tente consertar toda a experiência de uma vez.</p>
+          </Callout>
+          <ol className="mt-6 grid gap-4">
             {priority.actions.map((a, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-4 border border-white/10 rounded-2xl p-5 bg-white/[0.02]"
-              >
-                <span className="text-gold font-display text-2xl leading-none">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+              <li key={i} className="flex items-start gap-4 border border-white/10 rounded-2xl p-5 bg-white/[0.02] card-hover">
+                <span className="text-gold font-display text-2xl leading-none">{String(i + 1).padStart(2, "0")}</span>
                 <span className="text-cream/85">{a}</span>
               </li>
             ))}
@@ -252,10 +245,12 @@ function ResultInner() {
           </a>
         </section>
 
+        <section className="mt-10 animate-fade-up">
+          <DownloadPDFButton result={result} context={context} lead={lead} answers={answers} />
+        </section>
+
         <section className="mt-14 animate-fade-up">
-          <p className="text-cream/60 text-sm mb-4">
-            Quer compartilhar seu diagnóstico?
-          </p>
+          <p className="text-cream/60 text-sm mb-4">Quer compartilhar seu diagnóstico?</p>
           <ShareBar />
         </section>
 

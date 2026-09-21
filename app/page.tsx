@@ -21,7 +21,9 @@ const audience = [
 export default function Home() {
   return (
     <main className="relative min-h-screen star-field">
-      <section className="relative mx-auto max-w-5xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
+      <section className="relative overflow-hidden mx-auto max-w-5xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
+        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-electric/10 blur-3xl" aria-hidden />
+        <div className="absolute left-1/3 top-10 h-40 w-40 rounded-full bg-gold/5 blur-3xl" aria-hidden />
         <p className="text-electric text-[11px] tracking-[0.3em] uppercase font-medium">
           Magia dos Detalhes
         </p>
@@ -34,6 +36,11 @@ export default function Home() {
           Responda algumas perguntas e descubra onde sua empresa pode estar perdendo
           clareza, consistência, encantamento ou oportunidades de recompra.
         </p>
+
+        <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-cream/60 backdrop-blur-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
+          Inspirado em princípios de marcas que encantam — não em fórmulas prontas.
+        </div>
 
         <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
           <Link
